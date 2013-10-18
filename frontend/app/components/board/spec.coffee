@@ -23,6 +23,9 @@ define
             tilesCollection: $ref: 'tilesCollection'
         init: 'init'
 
+        knockout:
+            bind: 'layout'
+
     # stateMachine:
     #     create:
     #         module: 'directory of the class'
@@ -32,4 +35,5 @@ define
         { module: 'wire/dom' }
         { module: 'wire/dom/render' }
         { module: 'wire/connect'}
+        { module: '/app/wire/knockout'}
     ]
