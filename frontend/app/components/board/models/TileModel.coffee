@@ -5,18 +5,18 @@ function(Backbone){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
-        @displayName = @displayName or attributes.type
         super attributes
-        @set('displayName', @displayName)
-        @set('colour', @colour)
+        @set('displayName', attributes.type)
+        @set('colour', null)
+        @set('group', null)
 
     playerLanded: (game, player) ->
 
 class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
         @owner = null
-        @displayName = @displayName or attributes.name
         super attributes, collection
+        @set('displayName', attributes.name or attributes.type)
 
     playerLanded: (game, player) ->
         if not @owner
@@ -54,8 +54,8 @@ class OwnedTileModel extends TileModel
 class StreetTileModel extends OwnedTileModel
     constructor: (attributes, collection) ->
         @houses = 0
-        @colour = attributes.group
         super attributes, collection
+        @set('colour', attributes.group)
 
     rentalAmount: (game) ->
         rent = @attributes.rents[@houses]
