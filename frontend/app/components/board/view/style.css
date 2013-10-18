@@ -88,3 +88,30 @@ pre {
     background: #333;
     color: #f8f8f8;
 }
+
+#do-turn {
+    display: block;
+    width: 80px;
+    height: 55px;
+    font-size: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    white-space: pre;
+
+    background-color: #cccccc;
+    border-radius: 1em;
+    cursor: pointer;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#do-turn:hover {
+    background-color: #b3b3b3;
+}
+#do-turn:active {
+    background-color: #6666ff;
+}
