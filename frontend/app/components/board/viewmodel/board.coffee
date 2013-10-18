@@ -8,7 +8,7 @@ function(ko, Backbone, kb){`
 class BoardViewModel extends kb.ViewModel
 
     init: ->
-        console.log @
+        @tiles = kb.collectionObservable @tilesCollection
         
 return BoardViewModel
 
