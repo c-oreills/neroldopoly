@@ -10,7 +10,46 @@
     width: 150px;
     height: 200px;
     border: 1px solid #000;
-    text-align: center;    
+    text-align: center;   
+    vertical-align: top; 
+}
+
+.title {
+    text-shadow: 1px 1px 1px #fff;
+    height: 55px;
+    vertical-align: middle;
+}
+
+.brown {
+    background: brown;
+}
+
+.blue {
+    background: blue;
+}
+
+.pink {
+    background: pink;
+}
+
+.orange {
+    background: orange;
+}
+
+.red {
+    background: red;
+}
+
+.yellow {
+    background: yellow;
+}
+
+.green {
+    background: green;
+}
+
+.purple {
+    background: purple;
 }
 
 pre {

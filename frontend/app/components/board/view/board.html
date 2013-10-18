@@ -1,7 +1,8 @@
 <div>
     <ul id="board"> 
         <!-- ko foreach: tiles -->
-        <li class="tile" data-bind="text: type">
+        <li class="tile">
+            <div data-bind="text: displayName, css: colour" class="title"></div>
         </li>
         <!-- /ko -->
     </ul>
