@@ -26,6 +26,7 @@ class BoardViewModel extends kb.ViewModel
         @tiles()[0].playersPresent(@players)
         @gameLog = ko.observable('Game log\n========\n\n')
         @gameInfo = ko.observable()
+        @gameOver = ko.observable(false)
         window.board = @ # DEBUG
 
         @log('Starting!', true)
@@ -61,12 +62,7 @@ class BoardViewModel extends kb.ViewModel
         numSpaces = @rollDice()
         result = @movePlayerAhead(@currentPlayer, numSpaces)
 
-        # if not result
-        #     if @checkWinState()
-        #         return @gameComplete()
-
         @advancePlayerTurn()
-        # @doTurn()
 
     advancePlayerTurn: ->
         @currentPlayerI = (@currentPlayerI + 1) % @players.length
@@ -104,11 +100,25 @@ class BoardViewModel extends kb.ViewModel
         else
             @log('Game over??', true)
 
-        return tile
+        @log('has landed on ' + tile.get('displayName'))
+        tile.playerLanded(@, player)
+
+        player.set('position', pos)
+
+        if @checkWinState()
+            @doGameOver()
 
     checkWinState: ->
+        numInTheGame = 0
 
-    gameComplete: ->
+        for player in @players
+            numInTheGame++ if player.get('balance') > 0
+
+        return numInTheGame <= 1
+
+    doGameOver: ->
+        # TODO: This is probably wrong
+        @gameOver(@currentPlayer.get('name'))
 
 
 return BoardViewModel

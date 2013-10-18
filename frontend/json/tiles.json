@@ -20,7 +20,9 @@
             "price": 60
         },
         {
-            "type": "income tax"
+            "type": "tax",
+            "name": "Income Tax",
+            "amount": 200
         },
         {
             "type": "company",
@@ -233,6 +235,11 @@
             "mortgage": 175,
             "rents": [35,175,500,1100,1300,1500],
             "price": 350
+        },
+        {
+            "type": "tax",
+            "name": "Super Tax",
+            "amount": 100
         },
         {
             "type": "street",

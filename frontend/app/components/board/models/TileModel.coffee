@@ -85,10 +85,63 @@ class UtilityTileModel extends OwnedTileModel
         multiplier * game.dice.total
 
 class CardModel extends TileModel
+    playerLanded: (game, player) ->
+        randomIndex = Math.floor(Math.random() * @cards.length)
+        card = @cards[randomIndex]
+        card_type = card[0]
+
+        if card_type == 'balance'
+            default_msg = 'you ' + (card[1] < 0 ? 'have to pay' : 'receive') + ' £' + Math.abs(card[1])
+            game.log(card[2] or default_msg)
+            player.updateBalance(card[1])
 
 class CommunityChestCardModel extends CardModel
+    constructor: (attributes, collection) ->
+        @cards = [
+            ['balance', 25, 'Receive for services £25'],
+            ['advance', 'go:', 'Advance to Go'],
+            ['balance', 100, 'You inherit £100']
+            ['balance', -50, 'Pay your insurance premium £50']
+            ['jail_free', null, null],
+            ['balance', 100, 'Xmas fund matures collect £100']
+            ['jail', null, null],
+            ['balance', 10, 'You have won second prize in a beauty contest collect £10']
+            ['balance', 200, 'Bank error in your favour collect £100']
+            ['balance', -50, 'Doctors fee pay £50']
+            ['balance', 50, 'From sale of stock you get £50']
+            ['balance', -100, 'Pay hospital £100']
+            ['balance', -150, 'Pay school fees of £150']
+            ['balance', 20, 'Income tax refund £20']
+        ]
+        super attributes, collection
+        @set('displayName', 'Community Chest')
 
 class ChanceCardModel extends CardModel
+    constructor: (attributes, collection) ->
+        @cards = [
+            ['advance', 'street:Pall Mall', null],
+            ['advance', 'street:Mayfair', null],
+            ['balance', 150, null],
+            ['jail_free', null, null],
+            ['advance', 'company:', null],
+            ['balance', -15, 'Pay poor tax of £15'],
+            ['advance', 'street:Trafalgar Square', null],
+            ['jail', null, null],
+            ['advance', 'pos:-3', 'Go back three spaces'],
+            ['balance', 50, 'Bank pays you dividend of £50'],
+            ['advance', 'go:', 'Advance to Go'],
+            ['advance', 'company:Marylebone Station', null],
+        ]
+        super attributes, collection
+        @set('displayName', 'Chance')
+
+class TaxTileModel extends TileModel
+    constructor: (attributes, collection) ->
+        super attributes, collection
+        @set('displayName', attributes.name)
+
+    playerLanded: (game, player) ->
+        player.updateBalance(-@attributes.amount)
 
 TileModel.innerTileClasses = {
     'street': StreetTileModel,
@@ -96,6 +149,7 @@ TileModel.innerTileClasses = {
     'chance': ChanceCardModel,
     'company': RailwayTileModel,
     'utility': UtilityTileModel,
+    'tax': TaxTileModel,
 }
 
 return TileModel
