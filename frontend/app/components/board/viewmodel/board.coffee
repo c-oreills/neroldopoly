@@ -23,12 +23,12 @@ class BoardViewModel extends kb.ViewModel
     init: ->
         @tiles = kb.collectionObservable @tilesCollection
         window.board = @ # DEBUG
+        @currentPlayer = @players[@currentPlayerI]
         @doTurn()
 
     doTurn: ->
         numSpaces = @rollDice()
-        tile = @movePlayerAhead(numSpaces)
-        # result = tile.accept(@currentPlayer)
+        result = @movePlayerAhead(@currentPlayer, numSpaces)
 
         # if not result
         #     if @checkWinState()
@@ -45,7 +45,20 @@ class BoardViewModel extends kb.ViewModel
         return @dice.roll()
 
 
-    movePlayerAhead: ->
+    movePlayerAhead: (player, spaces) ->
+        pos = (player.get('position') + spaces) % @tilesCollection.length
+
+        # if player.position > pos
+        #     # TODO: Passed GO.
+
+        tile = @tilesCollection.models[pos]
+
+        if tile.playerLanded(player)
+            player.set('position', pos)
+        else
+            # Game over??
+
+        return tile
 
     checkWinState: ->
 
