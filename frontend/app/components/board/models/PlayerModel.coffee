@@ -14,8 +14,7 @@ class PlayerModel extends Backbone.Model
     initialize: ->
 
     wantsToBuy: (tile) ->
-        return true
-        # return confirm(@.get('name') + ', do you want to buy ' + tile.get('name') + ' for £' + tile.get('price') + '?');
+        return confirm(@.get('name') + ', do you want to buy ' + tile.get('name') + ' for £' + tile.get('price') + '?');
 
     updateBalance: (amount) ->
         @balance += amount
