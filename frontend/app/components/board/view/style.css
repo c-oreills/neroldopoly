@@ -1,6 +1,6 @@
 #board {
     list-style: none;
-    width: 6200px;
+    width: 6400px;
     margin-right: 50px;
 
 }
@@ -50,6 +50,29 @@
 
 .purple {
     background: purple;
+}
+
+.player {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.player1 {
+    background: red
+}
+
+.player2 {
+    background: blue
+}
+
+.player3 {
+    background: yellow
+}
+
+.player4 {
+    background: green
 }
 
 pre {

@@ -18,7 +18,7 @@ class TilesCollection extends Backbone.Collection
         if attrs.type of TileModel.innerTileClasses
             cls = TileModel.innerTileClasses[attrs.type]
         ret = new cls attrs, @
-        console.log ret
+        # console.log ret
         ret
 
 return TilesCollection
