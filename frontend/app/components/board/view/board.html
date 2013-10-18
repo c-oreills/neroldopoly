@@ -3,6 +3,9 @@
         <!-- ko foreach: tiles -->
         <li class="tile">
             <div data-bind="text: displayName, css: colour" class="title"></div>
+            <!-- ko foreach: { data: playersPresent, as: 'player' } -->
+                <div data-bind="css: player.attributes.playerId" class="player"></div>
+            <!-- /ko -->               
         </li>
         <!-- /ko -->
     </ul>

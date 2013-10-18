@@ -13,16 +13,16 @@ class BoardViewModel extends kb.ViewModel
     init: ->
         @currentPlayerI = 0
         @players = [
-            new PlayerModel({ name: "James" }),
-            new PlayerModel({ name: "Christy" }),
-            new PlayerModel({ name: "Guy" }),
-            new PlayerModel({ name: "Luke" }),
+            new PlayerModel({ name: "James", playerId: 'player1' }),
+            new PlayerModel({ name: "Christy", playerId: 'player2' }),
+            new PlayerModel({ name: "Guy", playerId: 'player3' }),
+            new PlayerModel({ name: "Luke", playerId: 'player4' }),
         ]
         @currentPlayer = @players[@currentPlayerI]
         @dice = new DiceModel()
 
         @tiles = kb.collectionObservable @tilesCollection
-
+        @tiles()[0].playersPresent(@players)
         window.board = @ # DEBUG
 
         #@doTurn()

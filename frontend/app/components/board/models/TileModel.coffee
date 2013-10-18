@@ -1,11 +1,13 @@
 `define([
-    'backbone'
+    'backbone',
+    'knockout'
 ],
-function(Backbone){`
+function(Backbone, ko){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
         super attributes
+        @set('playersPresent', [])
         @set('displayName', attributes.type)
         @set('colour', null)
         @set('group', null)
