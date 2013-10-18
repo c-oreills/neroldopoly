@@ -4,15 +4,14 @@
 function(Backbone){`
 
 class TileModel extends Backbone.Model
-    playerLanded: (player) ->
-        throw "IMPLEMENT ME MOFO"
+    playerLanded: (game, player) ->
 
 class OwnedTileModel extends TileModel
     constructor: (options) ->
         @owner = null
         super options
 
-    playerLanded: (player) ->
+    playerLanded: (game, player) ->
         if not @owner
             if player.wantsToBuy(@)
                 player.updateBalance(-@purchase_price)
@@ -22,7 +21,7 @@ class OwnedTileModel extends TileModel
         else if @owner == player
             # Do nothing
         else
-            rent = @rental_amount
+            rent = @rental_amount game
             player.updateBalance(-rent)
             @owner.updateBalance(rent)
 
@@ -34,16 +33,33 @@ class StreetTileModel extends OwnedTileModel
         @houses = 0
         super options
 
-    rental_amount: ->
+    rental_amount: (game) ->
         @options.rents[0]
 
-class GoTileModel extends TileModel
-    playerLanded: (player) ->
+class RailwayTileModel extends OwnedTileModel
+    rental_amount: (game) ->
+        25
+
+class UtilityTileModel extends OwnedTileModel
+    rental_amount: (game) ->
+        4 * game.dice.total
+
+class CardModel extends TileModel
+    playerLanded: (game, player) ->
         player.updateBalance 200
+
+class CommunityChestCardModel extends CardModel
+
+class ChanceCardModel extends CardModel
+
+class CardModel extends TileModel
 
 TileModel.innerTileClasses = {
     'street': StreetTileModel,
-    'go': GoTileModel,
+    'communityChest': CommunityChestCardModel,
+    'chance': ChanceCardModel,
+    'company': RailwayTileModel,
+    'utility': UtilityTileModel,
 }
 
 return TileModel
