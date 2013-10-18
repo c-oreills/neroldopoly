@@ -43,6 +43,10 @@ class StreetTileModel extends OwnedTileModel
     rental_amount: ->
         @options.rents[0]
 
+class GoTileModel extends TileModel
+    accept: (player) ->
+        player.update_balance 200
+
 return TileModel
 
 `})`
