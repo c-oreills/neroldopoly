@@ -1,13 +1,14 @@
 `define([
     'knockout',
-    'backbone'
+    'backbone',
+    'knockback'
 ],
-function(ko, Backbone){`
+function(ko, Backbone, kb){`
 
-class BoardViewModel 
+class BoardViewModel extends kb.ViewModel
 
-    constructor: ->
-        console.log 'Board View Model Loaded'
+    init: ->
+        console.log @
         
 return BoardViewModel
 

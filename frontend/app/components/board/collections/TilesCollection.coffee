@@ -1,14 +1,17 @@
 `define([
-    'backbone',
-    'app/components/board/models/TileModel'
+    'jquery',
+    'backbone'
 ],
-function(Backbone){`
+function(jQuery, Backbone){`
 
 class TilesCollection extends Backbone.Collection
-    url: '/json/tiles.json'
 
-    model: 'TileModel'
+    url: 'json/tiles.json'
 
-return EmailCollection
+    set: (key, val, options) ->
+        temp = JSON.parse key
+        super temp.tiles, val, options
+
+return TilesCollection
 
 `})`

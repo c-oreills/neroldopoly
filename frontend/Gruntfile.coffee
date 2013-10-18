@@ -41,7 +41,7 @@ module.exports = (grunt) ->
                 files: 
                     [
                         {expand: true, src: ['lib/**'], dest: 'www/'},
-                        {expand: true, cwd:'app/json', src: ['*'], dest: 'www/json'}
+                        {expand: true, cwd:'json/', src: ['**'], dest: 'www/json'}
                     ]
             static: 
                 files: 

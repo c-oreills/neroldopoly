@@ -16,7 +16,7 @@
             "price": 80
         },
         {
-            "type": "income tax",
+            "type": "income tax"
         },
         {
             "type": "company",
@@ -30,7 +30,7 @@
             "price": 100
         },
         {
-            "type": "chance",
+            "type": "chance"
         },
         {
             "type": "street",
@@ -45,7 +45,7 @@
             "price": 120
         },
         {
-            "type": "jail",
+            "type": "jail"
         },
         {
             "type": "street",
@@ -106,7 +106,7 @@
             "price": 120
         },
         {
-            "type": "chance",
+            "type": "chance"
         },
         {
             "type": "street",
@@ -149,7 +149,7 @@
             "price": 280
         },
         {
-            "type": "goToJail",
+            "type": "goToJail"
         },
         {
             "type": "street",
@@ -178,7 +178,7 @@
             "price": 200
         },
         {
-            "type": "chance",
+            "type": "chance"
         },
         {
             "type": "street",
@@ -194,6 +194,6 @@
         },
         {
             "type": "go"
-        },
+        }
     ]
 }
