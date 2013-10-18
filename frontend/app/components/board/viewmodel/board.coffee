@@ -54,7 +54,7 @@ class BoardViewModel extends kb.ViewModel
 
         tile = @tilesCollection.models[pos]
 
-        if tile.playerLanded(player)
+        if tile.playerLanded(game, player)
             player.set('position', pos)
         else
             # Game over??
