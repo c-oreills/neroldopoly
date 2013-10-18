@@ -1,16 +1,19 @@
 `define([
-    'backbone'
+    'backbone',
+    'knockout'
 ],
-function(Backbone){`
+function(Backbone, ko){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
         super attributes
+        @set('playersPresent', [])
         @set('displayName', attributes.type)
         @set('colour', null)
         @set('group', null)
 
     playerLanded: (game, player) ->
+        true
 
 class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
@@ -31,6 +34,8 @@ class OwnedTileModel extends TileModel
             rent = @rentalAmount game
             player.updateBalance(-rent)
             @owner.updateBalance(rent)
+
+        true
 
     purchase_price: ->
         @attributes.price

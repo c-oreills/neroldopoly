@@ -51,3 +51,40 @@
 .purple {
     background: purple;
 }
+
+.player {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.player1 {
+    background: red
+}
+
+.player2 {
+    background: blue
+}
+
+.player3 {
+    background: yellow
+}
+
+.player4 {
+    background: green
+}
+
+pre {
+    width: 500px;
+    max-height: 400px;
+
+    float: left;
+    margin-right: 2em;
+
+    overflow-y: auto;
+    border: groove 10px teal;
+    padding: 1em;
+    background: #333;
+    color: #f8f8f8;
+}
