@@ -77,6 +77,8 @@ class BoardViewModel extends kb.ViewModel
         return @dice.roll()
 
     movePlayerAhead: (player, spaces) ->
+        console.log player.get('position')
+        oldTile = @tiles()[player.get('position')]
         pos = (player.get('position') + spaces) % @tilesCollection.length
 
         @log('moves ahead ' + pos + ' spaces')
@@ -91,6 +93,14 @@ class BoardViewModel extends kb.ViewModel
         if tile.playerLanded(@, player)
             @log('has landed on ' + tile.get('name'))
             player.set('position', pos)
+            # console.log oldTile.playersPresent.remove()
+            newArray = []
+            _.each oldTile.playersPresent(), (tempplayer) =>
+                if tempplayer != player
+                    newArray.push(tempplayer)
+            oldTile.playersPresent(newArray)
+            tileVM = @tiles()[pos]
+            tileVM.playersPresent(tileVM.playersPresent().concat([player]))
         else
             @log('Game over??', true)
 
