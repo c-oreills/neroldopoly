@@ -12,13 +12,13 @@ module.exports = (grunt) ->
                 expand: true
                 cwd: 'app'
                 src: ['**/*.coffee']
-                dest: '.compiled/app'
+                dest: 'www/app'
                 ext: '.js'
             specs:
                 expand: true
                 cwd: 'spec'
                 src: ['**/*.coffee']
-                dest: '.compiled/specs'
+                dest: 'www/specs'
                 ext: '.js'
 
         watch:
@@ -26,36 +26,31 @@ module.exports = (grunt) ->
                 files: ["app/**/*.coffee", "spec/**/*.coffee"]
                 tasks: ["coffee"]
 
-            jasmine:
-                files: [".compiled/**/*"]
-                tasks: ["jasmine"]
-
-        jasmine:
-            seed:
+        connect:
+            server:
                 options:
-                    specs: [".compiled/specs/**/*.js"]
+                    port: 8000,    
+                    hostname: '0.0.0.0'
+                    base: 'www'
 
-            options:
-                template : require('grunt-template-jasmine-curljs')
-                templateOptions:
-                    curlConfig :
-                        paths:
-                            app: '.compiled/app'
-                            jquery: 'lib/jquery/jquery'
-                        packages: [
-                            { name: 'curl', location: 'lib/curl/src/curl', main: 'curl' }
-                            { name: 'underscore', location: 'lib/lodash/dist', main: 'lodash'}
-                            { name: 'lodash', location: 'lib/lodash/dist', main: 'lodash'}
-                            { name: 'backbone', location: 'lib/backbone', main: 'backbone', config: cjsLoader}
-                            { name: 'knockout', location: 'lib/knockout/build/output', main: 'knockout-latest' }
-                            { name: 'knockback', location: 'lib/knockback', main: 'knockback', config: cjsLoader}
-                        ]
-                helpers : ['spec/javascripts/helpers/*.js']
-                vendor: []
+        copy:
+            lib: 
+                files: 
+                    [
+                        {expand: true, src: ['lib/**'], dest: 'www/'},
+                        {expand: true, cwd:'app/json', src: ['*'], dest: 'www/json'}
+                    ]
+            static: 
+                files: 
+                    [
+                        {src: 'index.html', dest: 'www/index.html'},
+                        {expand: true, src: ['lib/**'], dest: 'www/'}
+                    ]
 
+    grunt.loadNpmTasks 'grunt-contrib-copy'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
-    grunt.loadNpmTasks 'grunt-contrib-jasmine'
     grunt.loadNpmTasks 'grunt-shell'
+    grunt.loadNpmTasks('grunt-contrib-connect')
 
-    grunt.registerTask 'default', ['coffee', 'watch']
+    grunt.registerTask 'default', ['coffee', 'copy', 'connect', 'watch']

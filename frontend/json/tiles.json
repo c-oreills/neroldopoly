@@ -1,0 +1,199 @@
+{
+    "tiles": [
+        {
+            "type": "street",
+            "name": "Mediteranean avenue",
+            "color": "#422458",
+            "price": 60
+        },
+        {
+            "type": "comunityChest"
+        },
+        {
+            "type": "street",
+            "name": "Baltic Avenue",
+            "color": "#422458",
+            "price": 80
+        },
+        {
+            "type": "income tax",
+        },
+        {
+            "type": "company",
+            "name": "Reading Railroad",
+            "price": 200
+        },
+        {
+            "type": "street",
+            "name": "Oriental Street",
+            "color": "#c4c8e3",
+            "price": 100
+        },
+        {
+            "type": "chance",
+        },
+        {
+            "type": "street",
+            "name": "Vermount Avenue",
+            "color": "#c4c8e3",
+            "price": 100
+        },
+        {
+            "type": "street",
+            "name": "Connecticut Avenue",
+            "color": "#c4c8e3",
+            "price": 120
+        },
+        {
+            "type": "jail",
+        },
+        {
+            "type": "street",
+            "name": "ST. Charles Place",
+            "color": "#a72758",
+            "price": 120
+        },
+        {
+            "type": "company",
+            "name": "Electric Company",
+            "price": 150
+        },
+        {
+            "type": "street",
+            "name": "States Avenue",
+            "color": "#a72758",
+            "price": 140
+        },
+        {
+            "type": "street",
+            "name": "Virgina Avenue",
+            "color": "#a72758",
+            "price": 160
+        },
+        {
+            "type": "company",
+            "name": "Pennsylvania Railroad",
+            "price": 200
+        },
+        {
+            "type": "street",
+            "name": "ST. James Place",
+            "color": "#f09747",
+            "price": 120
+        },
+        {
+            "type": "comunityChest"
+        },
+        {
+            "type": "street",
+            "name": "Tennessee Avenue",
+            "color": "#f09747",
+            "price": 120
+        },
+        {
+            "type": "street",
+            "name": "New York Avenue",
+            "color": "#f09747",
+            "price": 120
+        },
+        {
+            "type": "freeParking"
+        },
+        {
+            "type": "street",
+            "name": "Kentucky Avenue",
+            "color": "#e22833",
+            "price": 120
+        },
+        {
+            "type": "chance",
+        },
+        {
+            "type": "street",
+            "name": "Indiana Avenue",
+            "color": "#e22833",
+            "price": 120
+        },
+        {
+            "type": "street",
+            "name": "Illinois Avenue",
+            "color": "#e22833",
+            "price": 120
+        },
+        {
+            "type": "company",
+            "name": "B&O Railroad",
+            "price": 200
+        },
+        {
+            "type": "street",
+            "name": "Atlantic Avenue",
+            "color": "#f8f37b",
+            "price": 260
+        },
+        {
+            "type": "street",
+            "name": "Ventonr Avenue",
+            "color": "#f8f37b",
+            "price": 260
+        },
+        {
+            "type": "company",
+            "name": "Water Works",
+            "price": 150
+        },
+        {
+            "type": "street",
+            "name": "Marvin Gardens",
+            "color": "#f8f37b",
+            "price": 280
+        },
+        {
+            "type": "goToJail",
+        },
+        {
+            "type": "street",
+            "name": "Pacific Avenue",
+            "color": "#448364",
+            "price": 300
+        },
+        {
+            "type": "street",
+            "name": "North Carolina Avenue",
+            "color": "#448364",
+            "price": 300
+        },
+        {
+            "type": "comunityChest"
+        },
+        {
+            "type": "street",
+            "name": "Pennsylvania Avenue",
+            "color": "#448364",
+            "price": 300
+        },
+        {
+            "type": "company",
+            "name": "Short Line",
+            "price": 200
+        },
+        {
+            "type": "chance",
+        },
+        {
+            "type": "street",
+            "name": "Park Palace",
+            "color": "#413382",
+            "price": 350
+        },
+        {
+            "type": "street",
+            "name": "Broadwalk",
+            "color": "#413382",
+            "price": 400
+        },
+        {
+            "type": "go"
+        },
+    ]
+}

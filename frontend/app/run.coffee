@@ -17,7 +17,7 @@ config =
         { name: 'when', location: 'lib/when', main: 'when' }
         { name: 'poly', location: 'lib/poly' }
     ]
-    preloads: ['app/utils/jquery-setup']
+    # preloads: ['app/utils/jquery-setup']
 
 success = (context) ->
     window.context = context

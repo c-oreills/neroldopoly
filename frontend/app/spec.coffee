@@ -1,5 +1,8 @@
 define
-    hello: 'internet'
+    
+    board:
+        wire:
+            spec: 'app/components/board/spec'
 
     plugins: [
         # { module: 'wire/debug', trace: false }

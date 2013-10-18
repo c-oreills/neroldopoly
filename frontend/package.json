@@ -15,5 +15,9 @@
   },
   "scripts": {
     "postinstall": "bower install"
+  },
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-connect": "~0.5.0"
   }
 }

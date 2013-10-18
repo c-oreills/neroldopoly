@@ -4,5 +4,6 @@
 *.pyo
 frontend/node_modules
 frontend/lib
+frontend/www
 _SpecRunner.html
 frontend/.compiled
