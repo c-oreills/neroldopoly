@@ -12,3 +12,17 @@
     border: 1px solid #000;
     text-align: center;    
 }
+
+pre {
+    width: 500px;
+    max-height: 400px;
+
+    float: left;
+    margin-right: 2em;
+
+    overflow-y: auto;
+    border: groove 10px teal;
+    padding: 1em;
+    background: #333;
+    color: #f8f8f8;
+}

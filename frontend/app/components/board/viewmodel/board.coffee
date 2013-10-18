@@ -1,11 +1,12 @@
 `define([
+    'jquery',
     'knockout',
     'backbone',
     'knockback',
     '../models/PlayerModel',
     '../models/DiceModel'
 ],
-function(ko, Backbone, kb, PlayerModel, DiceModel){`
+function(jQuery, ko, Backbone, kb, PlayerModel, DiceModel){`
 
 class BoardViewModel extends kb.ViewModel
 
@@ -16,18 +17,47 @@ class BoardViewModel extends kb.ViewModel
             new PlayerModel({ name: "James" }),
             new PlayerModel({ name: "Christy" }),
             new PlayerModel({ name: "Guy" }),
-            new PlayerModel({ name: "Luke" }),
+            new PlayerModel({ name: "Luke" })
         ]
         @currentPlayer = @players[@currentPlayerI]
         @dice = new DiceModel()
 
         @tiles = kb.collectionObservable @tilesCollection
 
+        @gameLog = ko.observable('Game log\n========\n\n')
+        @gameInfo = ko.observable()
         window.board = @ # DEBUG
 
-        #@doTurn()
+        @log('Starting!', true)
+
+        @doTurn()
+
+    log: (msg, noPlayer) ->
+        prefix = ''
+
+        if not noPlayer
+            prefix = @currentPlayer.get('name') + ', '
+
+         @gameLog(@gameLog() + ' * ' + prefix + msg + '\n')
+         # TODO: Broken :-(
+         jQuery('#game-log').css('scrollTop', jQuery('#game-log').height())
+
+    updateInfo: ->
+        @gameInfo([
+            'Game info',
+            '========',
+            '',
+            'Players:',
+            ' * ' + @players[0].get('name') + ' (£' + @players[0].get('balance') + ')',
+            ' * ' + @players[1].get('name') + ' (£' + @players[1].get('balance') + ')',
+            ' * ' + @players[2].get('name') + ' (£' + @players[2].get('balance') + ')',
+            ' * ' + @players[3].get('name') + ' (£' + @players[3].get('balance') + ')',
+        ].join('\n'))
 
     doTurn: ->
+        @updateInfo()
+        @log("It's now " + @currentPlayer.get('name') + "'s turn", true)
+
         numSpaces = @rollDice()
         result = @movePlayerAhead(@currentPlayer, numSpaces)
 
@@ -43,21 +73,26 @@ class BoardViewModel extends kb.ViewModel
         @currentPlayer = @players[@currentPlayerI]
 
     rollDice: ->
+        @log('rolls the dice')
         return @dice.roll()
-
 
     movePlayerAhead: (player, spaces) ->
         pos = (player.get('position') + spaces) % @tilesCollection.length
 
-        # if player.position > pos
-        #     # TODO: Passed GO.
+        @log('moves ahead ' + pos + ' spaces')
+
+        # Pass GO, collect £200
+        if player.position > pos
+            @log('has passed GO and collects £200!')
+            player.updateBalance(200)
 
         tile = @tilesCollection.models[pos]
 
-        if tile.playerLanded(game, player)
+        if tile.playerLanded(@, player)
+            @log('has landed on ' + tile.get('name'))
             player.set('position', pos)
         else
-            # Game over??
+            @log('Game over??', true)
 
         return tile
 
