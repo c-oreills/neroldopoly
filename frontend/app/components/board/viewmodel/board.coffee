@@ -64,8 +64,6 @@ class BoardViewModel extends kb.ViewModel
 
         @advancePlayerTurn()
 
-        @doTurn() if not @gameOver()
-
     advancePlayerTurn: ->
         @currentPlayerI = (@currentPlayerI + 1) % @players.length
         @currentPlayer = @players[@currentPlayerI]

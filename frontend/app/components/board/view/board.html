@@ -8,10 +8,21 @@
             <div data-bind="text: displayName, css: colour" class="title"></div>
             <!-- ko foreach: { data: playersPresent, as: 'player' } -->
                 <div data-bind="css: player.attributes.playerId" class="player"></div>
-            <!-- /ko -->               
+            <!-- /ko -->
         </li>
         <!-- /ko -->
     </ul>
+
+    <div id="do-turn" data-bind="click: doTurn, css: gameOver">
+                 _______.
+       ______    | .   . |\
+      /     /\   |   .   |.\
+     /  '  /  \  | .   . |.'|
+    /_____/. . \ |_______|.'|
+    \ . . \    /  \ ' .   \'|
+     \ . . \  /    \____'__\|
+      \_____\/
+    </div>
 
     <pre id="game-log" data-bind="text: gameLog"></pre>
     <pre id="game-info" data-bind="text: gameInfo"></pre>
