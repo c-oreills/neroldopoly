@@ -69,6 +69,7 @@
         {
             "type": "utility",
             "name": "Electric Company",
+            "mortgage": 75,
             "price": 150
         },
         {
@@ -124,58 +125,66 @@
             "type": "freeParking"
         },
         {
+            "name": "Nerold's Stranded",
             "type": "street",
-            "name": "Trafalnerold Square",
             "group": "red",
-            "color": "#e22833",
-            "price": 120
+            "mortgage": 110,
+            "rents": [18,90,250,700,875,1050],
+            "price": 220
         },
         {
             "type": "chance"
         },
         {
             "type": "street",
-            "name": "Nerold's Stranded",
+            "name": "Fleet Nerold",
             "group": "red",
-            "color": "#e22833",
-            "price": 120
+            "mortgage": 110,
+            "rents": [18,90,250,700,875,1050],
+            "price": 220
         },
         {
             "type": "street",
-            "name": "Fleet Nerold",
+            "name": "Trafalnerold Square",
             "group": "red",
-            "color": "#e22833",
-            "price": 120
+            "mortgage": 120,
+            "rents": [20,100,300,750,925,1100],
+            "price": 240
         },
         {
             "type": "company",
             "name": "Neroldchurch St. Station",
+            "mortgage": 100,
             "price": 200
         },
         {
             "type": "street",
             "name": "Coventnerold Street",
             "group": "yellow",
-            "color": "#f8f37b",
+            "mortgage": 130,
+            "rents": [22,110,330,800,975,1150],
             "price": 260
         },
         {
             "type": "street",
             "name": "Leicnerold Square",
+            "mortgage": 130,
+            "rents": [22,110,330,800,975,1150],
             "group": "yellow",
-            "color": "#f8f37b",
             "price": 260
         },
         {
             "type": "utility",
             "name": "Water Works",
+            "mortgage": 75,
             "price": 150
         },
         {
             "type": "street",
             "name": "Neroldilly",
             "group": "yellow",
-            "color": "#f8f37b",
+            "mortgage": 140,
+            "rents": [24,120,360,850,1025,1200],
             "price": 280
         },
         {
@@ -185,14 +194,16 @@
             "type": "street",
             "name": "Regent Nerold",
             "group": "green",
-            "color": "#448364",
+            "mortgage": 150,
+            "rents": [26,130,390,900,1100,1275],
             "price": 300
         },
         {
             "type": "street",
             "name": "Neroldford Street",
             "group": "green",
-            "color": "#448364",
+            "mortgage": 150,
+            "rents": [26,130,390,900,1100,1275],
             "price": 300
         },
         {
@@ -202,12 +213,14 @@
             "type": "street",
             "name": "Bond, Nerold Bond Street",
             "group": "green",
-            "color": "#448364",
-            "price": 300
+            "mortgage": 160,
+            "rents": [28,150,450,1000,1200,1400],
+            "price": 320
         },
         {
             "type": "company",
             "name": "Livernerold St. Station",
+            "mortgage": 100,
             "price": 200
         },
         {
@@ -217,14 +230,16 @@
             "type": "street",
             "name": "Park Nerold",
             "group": "purple",
-            "color": "#413382",
+            "mortgage": 175,
+            "rents": [35,175,500,1100,1300,1500],
             "price": 350
         },
         {
             "type": "street",
             "name": "Maynerold",
             "group": "purple",
-            "color": "#413382",
+            "mortgage": 200,
+            "rents": [50,200,600,1400,1700,2000],
             "price": 400
         },
         {
