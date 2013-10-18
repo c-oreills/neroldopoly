@@ -16,7 +16,7 @@ class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
         @owner = null
         super attributes, collection
-        @displayName = attributes.name or attributes.type
+        @set('displayName', attributes.name or attributes.type)
 
     playerLanded: (game, player) ->
         if not @owner
