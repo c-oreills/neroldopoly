@@ -85,12 +85,21 @@ class CommunityChestCardModel extends CardModel
 
 class ChanceCardModel extends CardModel
 
+class TaxTileModel extends TileModel
+    constructor: (attributes, collection) ->
+        super attributes, collection
+        @set('displayName', attributes.name)
+
+    playerLanded: (game, player) ->
+        player.updateBalance(-@attributes.amount)
+
 TileModel.innerTileClasses = {
     'street': StreetTileModel,
     'communityChest': CommunityChestCardModel,
     'chance': ChanceCardModel,
     'company': RailwayTileModel,
     'utility': UtilityTileModel,
+    'tax': TaxTileModel,
 }
 
 return TileModel
