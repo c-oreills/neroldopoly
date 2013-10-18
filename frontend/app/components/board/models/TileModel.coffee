@@ -13,6 +13,7 @@ class TileModel extends Backbone.Model
         @set('group', null)
 
     playerLanded: (game, player) ->
+        true
 
 class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
@@ -33,6 +34,8 @@ class OwnedTileModel extends TileModel
             rent = @rentalAmount game
             player.updateBalance(-rent)
             @owner.updateBalance(rent)
+
+        true
 
     purchase_price: ->
         @attributes.price
