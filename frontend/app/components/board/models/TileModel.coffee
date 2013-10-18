@@ -95,6 +95,8 @@ class CardModel extends TileModel
             default_msg = 'you ' + (card[1] < 0 ? 'have to pay' : 'receive') + ' £' + Math.abs(card[1])
             game.log(card[2] or default_msg)
             player.updateBalance(card[1])
+        else
+            game.log('Unknown card type: ' + card_type)
 
 class CommunityChestCardModel extends CardModel
     constructor: (attributes, collection) ->
