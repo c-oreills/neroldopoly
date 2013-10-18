@@ -16,7 +16,7 @@ define
             module: 'app/components/board/collections/TilesCollection'
             args: module: 'text!json/tiles.json'
 
-    viewModel:
+    boardViewModel:
         create:
             module: '/app/components/board/viewmodel/board'
         properties:
@@ -25,6 +25,7 @@ define
 
         knockout:
             bind: 'layout'
+
 
     # stateMachine:
     #     create:

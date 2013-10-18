@@ -4,7 +4,7 @@
 ],
 function(ko, Backbone){`
 
-class TileViewModel 
+class TileViewModel extends kb.ViewModel
 
         
 return TileViewModel
