@@ -4,12 +4,15 @@
 function(Backbone){`
 
 class TileModel extends Backbone.Model
+    constructor: (attributes, @collection) ->
+        super attributes
+
     playerLanded: (game, player) ->
 
 class OwnedTileModel extends TileModel
-    constructor: (options) ->
+    constructor: (attributes, collection) ->
         @owner = null
-        super options
+        super attributes, collection
 
     playerLanded: (game, player) ->
         if not @owner
@@ -26,7 +29,7 @@ class OwnedTileModel extends TileModel
             @owner.updateBalance(rent)
 
     purchase_price: ->
-        @options.price
+        @attributes.price
 
     group: ->
         @collection.where {'type': 'company'}
@@ -39,18 +42,18 @@ class OwnedTileModel extends TileModel
 
     numberOfGroupOwned: ->
         c = 0
-        for i in @group
+        for i in @group()
             if i.owner == @owner
                 c++
         return c
 
 class StreetTileModel extends OwnedTileModel
-    constructor: (options) ->
+    constructor: (attributes, collection) ->
         @houses = 0
-        super options
+        super attributes, collection
 
     rentalAmount: (game) ->
-        rent = @options.rents[@houses]
+        rent = @attributes.rents[@houses]
         if @houses == 0 and @groupAllOwned
             rent *= 2
         rent
@@ -58,17 +61,17 @@ class StreetTileModel extends OwnedTileModel
     group: ->
         @collection.where {
             'type': 'street',
-            'color': @options.color
+            'group': @attributes.group
         }
 
 class RailwayTileModel extends OwnedTileModel
     rentalAmount: (game) ->
         rents = [0, 25, 50, 100, 200]
-        rents[@numberOfGroupOwned]
+        rents[@numberOfGroupOwned()]
 
 class UtilityTileModel extends OwnedTileModel
     rentalAmount: (game) ->
-        multiplier = @groupAllOwned ? 4 : 10
+        multiplier = @groupAllOwned() ? 4 : 10
         multiplier * game.dice.total
 
 class CardModel extends TileModel

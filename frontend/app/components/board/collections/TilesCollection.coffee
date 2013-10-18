@@ -13,11 +13,11 @@ class TilesCollection extends Backbone.Collection
         models = JSON.parse(models).tiles
         super models, options
 
-    model: (attrs, options) ->
+    model: (attrs, options) =>
+        cls = TileModel
         if attrs.type of TileModel.innerTileClasses
-            ret = new TileModel.innerTileClasses[attrs.type] attrs, options
-        else
-            ret = new TileModel attrs, options
+            cls = TileModel.innerTileClasses[attrs.type]
+        ret = new cls attrs, @
         console.log ret
         ret
 

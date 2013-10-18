@@ -25,7 +25,7 @@ class BoardViewModel extends kb.ViewModel
 
         window.board = @ # DEBUG
 
-        @doTurn()
+        #@doTurn()
 
     doTurn: ->
         numSpaces = @rollDice()
