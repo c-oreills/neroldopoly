@@ -17,7 +17,7 @@ class PlayerModel extends Backbone.Model
         return confirm(@.get('name') + ', do you want to buy ' + tile.get('name') + ' for £' + tile.get('price') + '?');
 
     updateBalance: (amount) ->
-        @balance += amount
+        @.set('balance', @.get('balance') + amount)
 
 return PlayerModel
 
