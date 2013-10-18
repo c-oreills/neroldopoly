@@ -21,38 +21,61 @@ class OwnedTileModel extends TileModel
         else if @owner == player
             # Do nothing
         else
-            rent = @rental_amount game
+            rent = @rentalAmount game
             player.updateBalance(-rent)
             @owner.updateBalance(rent)
 
     purchase_price: ->
         @options.price
 
+    group: ->
+        @collection.where {'type': 'company'}
+
+    groupAllOwned: ->
+        for i in @group
+            if i.owner != @owner
+                return false
+        return true
+
+    numberOfGroupOwned: ->
+        c = 0
+        for i in @group
+            if i.owner == @owner
+                c++
+        return c
+
 class StreetTileModel extends OwnedTileModel
     constructor: (options) ->
         @houses = 0
         super options
 
-    rental_amount: (game) ->
-        @options.rents[0]
+    rentalAmount: (game) ->
+        rent = @options.rents[@houses]
+        if @houses == 0 and @groupAllOwned
+            rent *= 2
+        rent
+
+    group: ->
+        @collection.where {
+            'type': 'street',
+            'color': @options.color
+        }
 
 class RailwayTileModel extends OwnedTileModel
-    rental_amount: (game) ->
-        25
+    rentalAmount: (game) ->
+        rents = [0, 25, 50, 100, 200]
+        rents[@numberOfGroupOwned]
 
 class UtilityTileModel extends OwnedTileModel
-    rental_amount: (game) ->
-        4 * game.dice.total
+    rentalAmount: (game) ->
+        multiplier = @groupAllOwned ? 4 : 10
+        multiplier * game.dice.total
 
 class CardModel extends TileModel
-    playerLanded: (game, player) ->
-        player.updateBalance 200
 
 class CommunityChestCardModel extends CardModel
 
 class ChanceCardModel extends CardModel
-
-class CardModel extends TileModel
 
 TileModel.innerTileClasses = {
     'street': StreetTileModel,
