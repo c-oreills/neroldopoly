@@ -21,10 +21,12 @@ define
             module: '/app/components/board/viewmodel/board'
         properties:
             tilesCollection: $ref: 'tilesCollection'
+
         init: 'init'
 
         knockout:
             bind: 'layout'
+
 
 
     # stateMachine:

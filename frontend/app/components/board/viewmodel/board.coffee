@@ -2,8 +2,6 @@
     'knockout',
     'backbone',
     'knockback',
-    '../models/PlayerModel',
-    '../models/DiceModel'
 ],
 function(ko, Backbone, kb, PlayerModel, DiceModel){`
 
@@ -63,9 +61,6 @@ class BoardViewModel extends kb.ViewModel
     checkWinState: ->
 
     gameComplete: ->
-
-
-return BoardViewModel
 
 
 `})`
