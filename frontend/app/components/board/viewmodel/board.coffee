@@ -9,6 +9,7 @@ function(ko, Backbone, kb, PlayerModel, DiceModel){`
 
 class BoardViewModel extends kb.ViewModel
 
+
     currentPlayerI: 0
     currentPlayer: null
     players: [
@@ -20,6 +21,7 @@ class BoardViewModel extends kb.ViewModel
     dice: new DiceModel()
 
     init: ->
+        @tiles = kb.collectionObservable @tilesCollection
         window.board = @ # DEBUG
         @doTurn()
 

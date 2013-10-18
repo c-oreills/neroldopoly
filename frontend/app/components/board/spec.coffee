@@ -16,12 +16,16 @@ define
             module: 'app/components/board/collections/TilesCollection'
             args: module: 'text!json/tiles.json'
 
-    viewModel:
+    boardViewModel:
         create:
             module: '/app/components/board/viewmodel/board'
         properties:
             tilesCollection: $ref: 'tilesCollection'
         init: 'init'
+
+        knockout:
+            bind: 'layout'
+
 
     # stateMachine:
     #     create:
@@ -32,4 +36,5 @@ define
         { module: 'wire/dom' }
         { module: 'wire/dom/render' }
         { module: 'wire/connect'}
+        { module: '/app/wire/knockout'}
     ]
