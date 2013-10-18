@@ -12,12 +12,6 @@ class TileModel extends Backbone.Model
 
     playerLanded: (game, player) ->
 
-    displayName: ->
-        @attributes.type
-
-    colour: ->
-        'white'
-
 class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
         @owner = null
@@ -61,7 +55,7 @@ class StreetTileModel extends OwnedTileModel
     constructor: (attributes, collection) ->
         @houses = 0
         super attributes, collection
-        @colour = @attributes.group or 'white'
+        @set('colour', @attributes.group)
 
     rentalAmount: (game) ->
         rent = @attributes.rents[@houses]
