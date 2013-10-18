@@ -2,26 +2,29 @@
     'knockout',
     'backbone',
     'knockback',
+    '../models/PlayerModel',
+    '../models/DiceModel'
 ],
 function(ko, Backbone, kb, PlayerModel, DiceModel){`
 
 class BoardViewModel extends kb.ViewModel
 
 
-    currentPlayerI: 0
-    currentPlayer: null
-    players: [
-        new PlayerModel({ name: "James" }),
-        new PlayerModel({ name: "Christy" }),
-        new PlayerModel({ name: "Guy" }),
-        new PlayerModel({ name: "Luke" }),
-    ]
-    dice: new DiceModel()
-
     init: ->
-        @tiles = kb.collectionObservable @tilesCollection
-        window.board = @ # DEBUG
+        @currentPlayerI = 0
+        @players = [
+            new PlayerModel({ name: "James" }),
+            new PlayerModel({ name: "Christy" }),
+            new PlayerModel({ name: "Guy" }),
+            new PlayerModel({ name: "Luke" }),
+        ]
         @currentPlayer = @players[@currentPlayerI]
+        @dice = new DiceModel()
+
+        @tiles = kb.collectionObservable @tilesCollection
+
+        window.board = @ # DEBUG
+
         @doTurn()
 
     doTurn: ->
@@ -61,6 +64,9 @@ class BoardViewModel extends kb.ViewModel
     checkWinState: ->
 
     gameComplete: ->
+
+
+return BoardViewModel
 
 
 `})`
