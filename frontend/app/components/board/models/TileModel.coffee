@@ -9,26 +9,27 @@ class TileModel extends Backbone.Model
             'street': 'StreetTileModel'
         }
         super options
+    playerLanded: (player) ->
+        throw "IMPLEMENT ME MOFO"
 
 class OwnedTileModel extends TileModel
     constructor: (options) ->
         @owner = null
-        console.log 'ownedtile'
         super options
 
-    accept: (player) ->
+    playerLanded: (player) ->
         if not @owner
-            if player.wants_to_buy()
-                player.update_balance -@purchase_price
-                @owner - player 
+            if player.wantsToBuy(@)
+                player.updateBalance(-@purchase_price)
+                @owner = player
             else
                 # Do nothing
         else if @owner == player
             # Do nothing
         else
             rent = @rental_amount
-            player.update_balance -rent
-            @owner.update_balance rent
+            player.updateBalance(-rent)
+            @owner.updateBalance(rent)
 
     purchase_price: ->
         @options.price
@@ -36,15 +37,12 @@ class OwnedTileModel extends TileModel
 class StreetTileModel extends OwnedTileModel
     constructor: (options) ->
         @houses = 0
-        console.log 'street'
         super options
 
     rental_amount: ->
         @options.rents[0]
 
 class GoTileModel extends TileModel
-    accept: (player) ->
-        player.update_balance 200
 
 return TileModel
 
