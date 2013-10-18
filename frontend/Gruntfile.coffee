@@ -25,6 +25,9 @@ module.exports = (grunt) ->
             coffee:
                 files: ["app/**/*.coffee", "spec/**/*.coffee"]
                 tasks: ["coffee"]
+            copy:
+                files: ["app/**/*.css", "app/**/*.html"]
+                tasks: ["copy:static"]
 
         connect:
             server:
@@ -44,7 +47,9 @@ module.exports = (grunt) ->
                 files: 
                     [
                         {src: 'index.html', dest: 'www/index.html'},
-                        {expand: true, src: ['lib/**'], dest: 'www/'}
+                        {expand: true, src: ['lib/**'], dest: 'www/js/'},
+                        {expand: true, src: ['app/**/*.css'], dest: 'www/'},
+                        {expand: true, src: ['app/**/*.html'], dest: 'www/'},
                     ]
 
     grunt.loadNpmTasks 'grunt-contrib-copy'

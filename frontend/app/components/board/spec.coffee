@@ -14,12 +14,13 @@ define
         create:
             module: '/app/components/board/viewmodel/board'
 
-
+    # stateMachine:
+    #     create:
+    #         module: 'directory of the class'
 
     plugins: [
         # { module: 'wire/debug', trace: false }
         { module: 'wire/dom' }
         { module: 'wire/dom/render' }
         { module: 'wire/connect'}
-        { module: 'js/components/knockout/knockout'}
     ]
