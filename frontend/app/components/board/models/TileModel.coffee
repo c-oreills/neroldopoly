@@ -24,7 +24,7 @@ class OwnedTileModel extends TileModel
     playerLanded: (game, player) ->
         if not @owner
             if player.wantsToBuy(@)
-                player.updateBalance(-@purchase_price)
+                player.updateBalance(-@purchase_price())
                 @owner = player
             else
                 # Do nothing
