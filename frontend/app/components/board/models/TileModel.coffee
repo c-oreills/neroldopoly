@@ -90,7 +90,7 @@ class CardModel extends TileModel
         card = @cards[randomIndex]
         card_type = card[0]
 
-        if type == 'balance'
+        if card_type == 'balance'
             default_msg = 'you ' + (card[1] < 0 ? 'have to pay' : 'receive') + ' £' + Math.abs(card[1])
             game.log(card[2] or default_msg)
             player.updateBalance(card[1])
@@ -113,6 +113,8 @@ class CommunityChestCardModel extends CardModel
             ['balance', -150, 'Pay school fees of £150']
             ['balance', 20, 'Income tax refund £20']
         ]
+        super attributes, collection
+        @set('displayName', 'Community Chest')
 
 class ChanceCardModel extends CardModel
     constructor: (attributes, collection) ->
@@ -130,6 +132,8 @@ class ChanceCardModel extends CardModel
             ['advance', 'go:', 'Advance to Go'],
             ['advance', 'company:Marylebone Station', null],
         ]
+        super attributes, collection
+        @set('displayName', 'Chance')
 
 class TaxTileModel extends TileModel
     constructor: (attributes, collection) ->
