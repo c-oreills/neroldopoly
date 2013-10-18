@@ -24,6 +24,7 @@ class OwnedTileModel extends TileModel
     playerLanded: (game, player) ->
         if not @owner
             if player.wantsToBuy(@)
+                game.log('bought ' + @.get('displayName') + ' for £' + @purchase_price())
                 player.updateBalance(-@purchase_price())
                 @owner = player
             else
@@ -31,7 +32,7 @@ class OwnedTileModel extends TileModel
         else if @owner == player
             # Do nothing
         else
-            rent = @rentalAmount game
+            rent = @rentalAmount(game)
             player.updateBalance(-rent)
             @owner.updateBalance(rent)
 
