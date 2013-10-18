@@ -5,8 +5,9 @@ function(Backbone){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
-        @displayName = attributes.type
-        @colour = 'white'
+        @set('displayName', attributes.type)
+        @set('colour', null)
+        @set('group', null)
         super attributes
 
     playerLanded: (game, player) ->
