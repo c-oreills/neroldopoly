@@ -2,7 +2,7 @@
     "tiles": [
         {
             "type": "street",
-            "name": "Old Kent Road",
+            "name": "Old Ner Road",
             "group": "brown",
             "rents": [2,10,30,90,160,250],
             "mortgage": 30,
@@ -13,7 +13,7 @@
         },
         {
             "type": "street",
-            "name": "Whitechapel Road",
+            "name": "Kenyachapel Road",
             "group": "brown",
             "price": 60
         },
@@ -22,12 +22,13 @@
         },
         {
             "type": "company",
-            "name": "Reading Railroad",
+            "name": "Queen Nerold Station",
             "price": 200
         },
         {
             "type": "street",
-            "name": "Oriental Street",
+            "name": "The Angel, Nerold",
+            "group": "blue",
             "color": "#c4c8e3",
             "price": 100
         },
@@ -36,13 +37,15 @@
         },
         {
             "type": "street",
-            "name": "Vermount Avenue",
+            "name": "Neroldville Road",
+            "group": "blue",
             "color": "#c4c8e3",
             "price": 100
         },
         {
             "type": "street",
-            "name": "Connecticut Avenue",
+            "name": "Eusnotascoolasnerold Road",
+            "group": "blue",
             "color": "#c4c8e3",
             "price": 120
         },
@@ -51,7 +54,8 @@
         },
         {
             "type": "street",
-            "name": "ST. Charles Place",
+            "name": "Nerold Mall",
+            "group": "pink",
             "color": "#a72758",
             "price": 120
         },
@@ -62,24 +66,27 @@
         },
         {
             "type": "street",
-            "name": "States Avenue",
+            "name": "Neroldhall",
+            "group": "pink",
             "color": "#a72758",
             "price": 140
         },
         {
             "type": "street",
-            "name": "Virgina Avenue",
+            "name": "Northumbernerold Avenue",
+            "group": "pink",
             "color": "#a72758",
             "price": 160
         },
         {
             "type": "company",
-            "name": "Pennsylvania Railroad",
+            "name": "Marrymenerold Station",
             "price": 200
         },
         {
             "type": "street",
-            "name": "ST. James Place",
+            "name": "Donttrustneroldshesgotabow Street",
+            "group": "orange",
             "color": "#f09747",
             "price": 120
         },
@@ -88,13 +95,15 @@
         },
         {
             "type": "street",
-            "name": "Tennessee Avenue",
+            "name": "Neroldborough Street",
+            "group": "orange",
             "color": "#f09747",
             "price": 120
         },
         {
             "type": "street",
-            "name": "New York Avenue",
+            "name": "Gluhvein Street",
+            "group": "orange",
             "color": "#f09747",
             "price": 120
         },
@@ -103,7 +112,8 @@
         },
         {
             "type": "street",
-            "name": "Kentucky Avenue",
+            "name": "Trafalnerold Square",
+            "group": "red",
             "color": "#e22833",
             "price": 120
         },
@@ -112,30 +122,34 @@
         },
         {
             "type": "street",
-            "name": "Indiana Avenue",
+            "name": "Nerold's Stranded",
+            "group": "red",
             "color": "#e22833",
             "price": 120
         },
         {
             "type": "street",
-            "name": "Illinois Avenue",
+            "name": "Fleet Nerold",
+            "group": "red",
             "color": "#e22833",
             "price": 120
         },
         {
             "type": "company",
-            "name": "B&O Railroad",
+            "name": "Neroldchurch St. Station",
             "price": 200
         },
         {
             "type": "street",
-            "name": "Atlantic Avenue",
+            "name": "Coventnerold Street",
+            "group": "yellow",
             "color": "#f8f37b",
             "price": 260
         },
         {
             "type": "street",
-            "name": "Ventonr Avenue",
+            "name": "Leicnerold Square",
+            "group": "yellow",
             "color": "#f8f37b",
             "price": 260
         },
@@ -146,7 +160,8 @@
         },
         {
             "type": "street",
-            "name": "Marvin Gardens",
+            "name": "Neroldilly",
+            "group": "yellow",
             "color": "#f8f37b",
             "price": 280
         },
@@ -155,13 +170,15 @@
         },
         {
             "type": "street",
-            "name": "Pacific Avenue",
+            "name": "Regent Nerold",
+            "group": "green",
             "color": "#448364",
             "price": 300
         },
         {
             "type": "street",
-            "name": "North Carolina Avenue",
+            "name": "Neroldford Street",
+            "group": "green",
             "color": "#448364",
             "price": 300
         },
@@ -170,13 +187,14 @@
         },
         {
             "type": "street",
-            "name": "Pennsylvania Avenue",
+            "name": "Bond, Nerold Bond Street",
+            "group": "green",
             "color": "#448364",
             "price": 300
         },
         {
             "type": "company",
-            "name": "Short Line",
+            "name": "Livernerold St. Station",
             "price": 200
         },
         {
@@ -184,13 +202,15 @@
         },
         {
             "type": "street",
-            "name": "Park Palace",
+            "name": "Park Nerold",
+            "group": "purple",
             "color": "#413382",
             "price": 350
         },
         {
             "type": "street",
-            "name": "Broadwalk",
+            "name": "Maynerold",
+            "group": "purple",
             "color": "#413382",
             "price": 400
         },
