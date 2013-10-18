@@ -5,7 +5,7 @@ function(Backbone){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
-        @displayName = attributes.type
+        @displayName = @displayName or attributes.type
         super attributes
         @set('displayName', @displayName)
         @set('colour', @colour)
@@ -15,7 +15,7 @@ class TileModel extends Backbone.Model
 class OwnedTileModel extends TileModel
     constructor: (attributes, collection) ->
         @owner = null
-        @displayName = attributes.name or attributes.type
+        @displayName = @displayName or attributes.name
         super attributes, collection
 
     playerLanded: (game, player) ->
