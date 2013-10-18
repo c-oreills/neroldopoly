@@ -12,6 +12,8 @@ class BoardViewModel extends kb.ViewModel
 
 
     init: ->
+        @autoPlay = true # DEBUG
+
         @currentPlayerI = 0
         @players = [
             new PlayerModel({ name: "James", playerId: 'player1' }),
@@ -63,6 +65,15 @@ class BoardViewModel extends kb.ViewModel
         result = @movePlayerAhead(@currentPlayer, numSpaces)
 
         @advancePlayerTurn()
+        @updateInfo()
+
+        if @autoPlay
+            scope = @
+            setTimeout(
+                ->
+                    scope.doTurn()
+                400
+            )
 
     advancePlayerTurn: ->
         @currentPlayerI = (@currentPlayerI + 1) % @players.length
