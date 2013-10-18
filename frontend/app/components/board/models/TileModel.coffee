@@ -8,7 +8,6 @@ class TileModel extends Backbone.Model
         types = {
             'street': 'StreetTileModel'
         }
-        console.log @
         super options
 
 class OwnedTileModel extends TileModel
