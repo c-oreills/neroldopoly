@@ -5,10 +5,10 @@ function(Backbone){`
 
 class TileModel extends Backbone.Model
     constructor: (attributes, @collection) ->
+        super attributes
         @set('displayName', attributes.type)
         @set('colour', null)
         @set('group', null)
-        super attributes
 
     playerLanded: (game, player) ->
 
@@ -55,7 +55,7 @@ class StreetTileModel extends OwnedTileModel
     constructor: (attributes, collection) ->
         @houses = 0
         super attributes, collection
-        @set('colour', @attributes.group)
+        @set('colour', attributes.group)
 
     rentalAmount: (game) ->
         rent = @attributes.rents[@houses]
