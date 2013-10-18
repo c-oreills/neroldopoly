@@ -60,13 +60,7 @@ class StreetTileModel extends OwnedTileModel
     constructor: (attributes, collection) ->
         @houses = 0
         super attributes, collection
-        group = @attributes.group or 'white'
-        colours = {
-        }
-        if group of colours
-            @colour = colours[group]
-        else
-            @colour = group
+        @colour = @attributes.group or 'white'
 
     rentalAmount: (game) ->
         rent = @attributes.rents[@houses]
