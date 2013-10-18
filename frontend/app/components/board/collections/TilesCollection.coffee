@@ -9,11 +9,13 @@ class TilesCollection extends Backbone.Collection
 
     url: 'json/tiles.json'
 
-    model: TileModel
+    set: (models, options) ->
+        models = JSON.parse(models).tiles
+        super models, options
 
-    set: (key, val, options) ->
-        temp = JSON.parse key
-        super temp.tiles, val, options
+    model: (attrs, options) ->
+        console.log attrs
+        new TileModel attrs, options
 
 return TilesCollection
 
