@@ -43,6 +43,8 @@ class StreetTileModel extends OwnedTileModel
         @options.rents[0]
 
 class GoTileModel extends TileModel
+    playerLanded: (player) ->
+        player.updateBalance 200
 
 return TileModel
 
