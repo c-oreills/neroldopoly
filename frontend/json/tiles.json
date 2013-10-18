@@ -14,7 +14,9 @@
         {
             "type": "street",
             "name": "Kenyachapel Road",
+            "rents": [4,20,60,180,320,450],
             "group": "brown",
+            "mortgage": 30,
             "price": 60
         },
         {
@@ -23,13 +25,15 @@
         {
             "type": "company",
             "name": "Queen Nerold Station",
+            "mortgage": 100,
             "price": 200
         },
         {
             "type": "street",
             "name": "The Angel, Nerold",
             "group": "blue",
-            "color": "#c4c8e3",
+            "mortgage": 50,
+            "rents": [6,30,90,270,400,550],
             "price": 100
         },
         {
@@ -39,14 +43,16 @@
             "type": "street",
             "name": "Neroldville Road",
             "group": "blue",
-            "color": "#c4c8e3",
+            "mortgage": 50,
+            "rents": [6,30,90,270,400,550],
             "price": 100
         },
         {
             "type": "street",
             "name": "Eusnotascoolasnerold Road",
             "group": "blue",
-            "color": "#c4c8e3",
+            "mortgage": 60,
+            "rents": [8,40,100,300,450,600],
             "price": 120
         },
         {
@@ -56,8 +62,9 @@
             "type": "street",
             "name": "Nerold Mall",
             "group": "pink",
-            "color": "#a72758",
-            "price": 120
+            "mortgage": 70,
+            "rents": [10,50,150,450,625,750],
+            "price": 140
         },
         {
             "type": "utility",
@@ -68,27 +75,31 @@
             "type": "street",
             "name": "Neroldhall",
             "group": "pink",
-            "color": "#a72758",
+            "mortgage": 70,
+            "rents": [10,50,150,450,625,750],
             "price": 140
         },
         {
             "type": "street",
             "name": "Northumbernerold Avenue",
             "group": "pink",
-            "color": "#a72758",
+            "mortgage": 80,
+            "rents": [12,60,180,500,700,900],
             "price": 160
         },
         {
             "type": "company",
             "name": "Marrymenerold Station",
+            "mortgage": 100,
             "price": 200
         },
         {
             "type": "street",
             "name": "Donttrustneroldshesgotabow Street",
             "group": "orange",
-            "color": "#f09747",
-            "price": 120
+            "mortgage": 90,
+            "rents": [14,70,200,550,750,950],
+            "price": 180
         },
         {
             "type": "comunityChest"
@@ -97,15 +108,17 @@
             "type": "street",
             "name": "Neroldborough Street",
             "group": "orange",
-            "color": "#f09747",
-            "price": 120
+            "mortgage": 90,
+            "rents": [14,70,200,550,750,950],
+            "price": 180
         },
         {
             "type": "street",
             "name": "Gluhvein Street",
             "group": "orange",
-            "color": "#f09747",
-            "price": 120
+            "mortgage": 100,
+            "rents": [16,80,220,600,800,1000],
+            "price": 200
         },
         {
             "type": "freeParking"
