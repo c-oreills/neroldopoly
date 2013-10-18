@@ -4,7 +4,7 @@
 function(Backbone){`
 
 class TileModel extends Backbone.Model
-    constructor(@options): ->
+    constructor: (@options) ->
         types = {
             'street': 'StreetTileModel'
         }
@@ -12,21 +12,21 @@ class TileModel extends Backbone.Model
         super options
 
 class OwnedTileModel extends TileModel
-    constructor(options): ->
+    constructor: (options) ->
         @owner = null
         console.log 'ownedtile'
         super options
 
-    accept(player): ->
-        if not @owner:
-            if player.wants_to_buy:
+    accept: (player) ->
+        if not @owner
+            if player.wants_to_buy()
                 player.update_balance -@purchase_price
                 @owner - player 
-            else:
+            else
                 # Do nothing
-        else if @owner == player:
+        else if @owner == player
             # Do nothing
-        else:
+        else
             rent = @rental_amount
             player.update_balance -rent
             @owner.update_balance rent
@@ -35,7 +35,7 @@ class OwnedTileModel extends TileModel
         @options.price
 
 class StreetTileModel extends OwnedTileModel
-    constructor(options): ->
+    constructor: (options) ->
         @houses = 0
         console.log 'street'
         super options
