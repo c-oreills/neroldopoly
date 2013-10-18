@@ -5,6 +5,9 @@ function(Backbone){`
 
 class PlayerModel extends Backbone.Model
 
-return PlayerModel
+    defaults:
+        name: 'Playah'
+
+    initialize: ->
 
 `})`
