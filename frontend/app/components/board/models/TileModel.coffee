@@ -4,11 +4,6 @@
 function(Backbone){`
 
 class TileModel extends Backbone.Model
-    constructor: (@options) ->
-        types = {
-            'street': 'StreetTileModel'
-        }
-        super options
     playerLanded: (player) ->
         throw "IMPLEMENT ME MOFO"
 
@@ -45,6 +40,11 @@ class StreetTileModel extends OwnedTileModel
 class GoTileModel extends TileModel
     playerLanded: (player) ->
         player.updateBalance 200
+
+TileModel.innerTileClasses = {
+    'street': StreetTileModel,
+    'go': GoTileModel,
+}
 
 return TileModel
 

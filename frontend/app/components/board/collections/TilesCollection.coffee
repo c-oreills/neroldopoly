@@ -14,8 +14,12 @@ class TilesCollection extends Backbone.Collection
         super models, options
 
     model: (attrs, options) ->
-        console.log attrs
-        new TileModel attrs, options
+        if attrs.type of TileModel.innerTileClasses
+            ret = new TileModel.innerTileClasses[attrs.type] attrs, options
+        else
+            ret = new TileModel attrs, options
+        console.log ret
+        ret
 
 return TilesCollection
 
